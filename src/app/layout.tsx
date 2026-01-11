@@ -1,38 +1,85 @@
 import type { Metadata } from "next";
-import { Inter, Plus_Jakarta_Sans, IBM_Plex_Sans, JetBrains_Mono } from "next/font/google";
-// import { TopNav } from "@/components/layout/TopNav";
+import { Plus_Jakarta_Sans, Inter, IBM_Plex_Mono } from "next/font/google";
 import "./globals.css";
-
-const inter = Inter({
-  variable: "--font-inter",
-  subsets: ["latin"],
-});
+import Script from "next/script";
+import { LanguageProvider } from "@/components/i18n/LanguageProvider";
+import { Navbar } from "@/components/layout/Navbar";
 
 const plusJakarta = Plus_Jakarta_Sans({
-  variable: "--font-plus-jakarta",
   subsets: ["latin"],
+  variable: "--font-heading",
+  display: "swap",
 });
 
-const ibmPlexSans = IBM_Plex_Sans({
-  variable: "--font-ibm-plex",
+const inter = Inter({
   subsets: ["latin"],
-  weight: ["300", "400", "500", "600"],
+  variable: "--font-body",
+  display: "swap",
 });
 
-const jetbrainsMono = JetBrains_Mono({
-  variable: "--font-jetbrains-mono",
+const ibmPlexMono = IBM_Plex_Mono({
+  weight: ["400", "500", "600"],
   subsets: ["latin"],
+  variable: "--font-mono",
+  display: "swap",
 });
 
 export const metadata: Metadata = {
-  title: "Write-ups | Cyber Security",
-  description: "Professional Security Research & Write-ups",
+  metadataBase: new URL("https://www.iihn.fun"),
+  title: {
+    default: "iihnsight | Cybersecurity Research & Writeups",
+    template: "%s | iihnsight"
+  },
+  description:
+    "Cybersecurity Research & Writeups - Ihsan Restu Adi. Ethical Hacking, Bug Bounty Hunting, and Secure Development.",
+  keywords: [
+    "Ihsan Restu Adi",
+    "Cyber Security",
+    "Ethical Hacker",
+    "Bug Bounty",
+    "Portfolio",
+    "Developer",
+    "Writeups",
+    "Research"
+  ],
+  authors: [{ name: "Ihsan Restu Adi" }],
+  icons: {
+    icon: "/favicon.ico",
+    apple: "/apple-touch-icon.png"
+  },
+  openGraph: {
+    title: "iihnsight | Cybersecurity Research",
+    description:
+      "In-depth cybersecurity research, vulnerability analysis, and technical writeups by Ihsan Restu Adi.",
+    url: "https://www.iihn.fun",
+    siteName: "iihnsight",
+    images: [
+      {
+        url: "https://www.iihn.fun/opengraph-image.jpg",
+        width: 1200,
+        height: 630
+      }
+    ],
+    type: "website",
+    locale: "en_US"
+  },
+  robots: {
+    index: true,
+    follow: true
+  },
+  alternates: {
+    canonical: "https://www.iihn.fun"
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: "iihnsight | Cybersecurity Research",
+    description: "Cyber Security Research and Writeups by Ihsan Restu Adi",
+    images: "https://www.iihn.fun/opengraph-image.jpg",
+  },
+  verification: {
+    google: "UPKAQQYkH1hUNYYGd4YFZZtGdEMAcvbLp1lRCa_htqQ",
+  },
 };
-
-import { LanguageProvider } from "@/components/i18n/LanguageProvider";
-import { TopNav } from "@/components/layout/TopNav";
-
-// ... existing imports
 
 export default function RootLayout({
   children,
@@ -40,15 +87,87 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="en">
+    <html lang="en" suppressHydrationWarning className="scroll-smooth">
+       <head>
+        <Script
+          id="structured-data"
+          type="application/ld+json"
+          dangerouslySetInnerHTML={{
+            __html: JSON.stringify({
+              "@context": "https://schema.org",
+              "@graph": [
+                {
+                  "@type": "Person",
+                  "@id": "https://www.iihn.fun/#about",
+                  "name": "Ihsan Restu Adi",
+                  "alternateName": "Ihsan",
+                  "description": "Cyber Security Enthusiast, Ethical Hacker, Bug Bounty Hunter, Undergraduate Computer Science Student, and Developer.",
+                  "url": "https://www.iihn.fun",
+                  "image": "https://www.iihn.fun/opengraph-image.jpg",
+                  "sameAs": [
+                    "https://github.com/ihsanlearn",
+                    "https://www.linkedin.com/in/ihsan-restu-adi/",
+                    "https://x.com/Ihsan0958761111"
+                  ],
+                  "jobTitle": "Cyber Security Enthusiast",
+                  "affiliation": {
+                    "@type": "CollegeOrUniversity",
+                    "name": "Universitas Sebelas Maret",
+                    "description": "Undergraduate Informatics Student"
+                  },
+                  "knowsAbout": [
+                    "Web Application Penetration Testing",
+                    "Vulnerability Assessment",
+                    "Exploit Research",
+                    "Bug Bounty Hunting",
+                    "Next.js",
+                    "TypeScript",
+                    "Python",
+                    "Go (Golang)",
+                    "Docker",
+                    "Linux System Administration",
+                    "Burp Suite"
+                  ]
+                },
+                {
+                  "@type": "Organization",
+                  "@id": "https://www.iihn.fun/#hero",
+                  "name": "iihnsight",
+                  "url": "https://www.iihn.fun",
+                  "logo": "https://www.iihn.fun/opengraph-image.jpg",
+                  "founder": { "@id": "https://www.iihn.fun/#about" },
+                  "foundingDate": "2024",
+                  "description": "Cybersecurity research platform and portfolio.",
+                  "sameAs": [
+                    "https://github.com/ihsanlearn",
+                    "https://x.com/Ihsan0958761111"
+                  ]
+                },
+                {
+                  "@type": "WebSite",
+                  "@id": "https://www.iihn.fun/#hero",
+                  "url": "https://www.iihn.fun",
+                  "name": "iihnsight | Cybersecurity Research",
+                  "description":
+                    "Portfolio and research website of Ihsan Restu Adi, Cyber Security Enthusiast and Developer.",
+                  "publisher": {
+                    "@id": "https://www.iihn.fun/#hero"
+                  },
+                  "inLanguage": "en-US"
+                }
+              ]
+            })
+          }}
+        />
+      </head>
       <body
-        className={`${inter.variable} ${plusJakarta.variable} ${ibmPlexSans.variable} ${jetbrainsMono.variable} antialiased font-sans bg-background text-foreground flex flex-col items-center`}
+        className={`${plusJakarta.variable} ${inter.variable} ${ibmPlexMono.variable} antialiased bg-background text-foreground font-body`}
       >
         <LanguageProvider>
-          <main className="min-h-screen">
-            <TopNav />
-            {children}
-          </main>
+          <div className="relative flex min-h-screen flex-col">
+            <Navbar />
+            <main className="flex-1">{children}</main>
+          </div>
         </LanguageProvider>
       </body>
     </html>
