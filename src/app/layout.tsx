@@ -100,7 +100,7 @@ export default function RootLayout({
                   "image": "https://www.iihn.fun/opengraph-image.jpg",
                   "sameAs": [
                     "https://github.com/ihsanlearn",
-                    "https://www.linkedin.com/in/ihsan-restu-adi/",
+                    "https://www.linkedin.com/in/ihsanrestuadi/",
                     "https://x.com/Ihsan0958761111"
                   ],
                   "jobTitle": "Cyber Security Enthusiast",

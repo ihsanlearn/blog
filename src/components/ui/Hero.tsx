@@ -30,8 +30,7 @@ export function Hero() {
         </h1>
         
         <p className="mx-auto max-w-2xl text-lg text-muted-foreground md:text-xl leading-relaxed">
-          Deep dives into cybersecurity, vulnerability research, and advanced exploitation techniques. 
-          Knowledge is the currency of the future.
+          Mendokumentasikan setiap langkah eksplorasi dalam memahami dunia digital, mengubah rasa ingin tahu menjadi pelajaran, dan merayakan proses belajar yang tak pernah usai.
         </p>
 
         <div className="flex flex-col items-center justify-center gap-4 sm:flex-row">
@@ -39,7 +38,7 @@ export function Hero() {
             href="/blog"
             className="inline-flex h-12 items-center justify-center rounded-lg bg-foreground px-8 text-sm font-medium text-background transition-colors hover:bg-black/80 focus-visible:outline-none focus-visible:ring-1 focus-visible:ring-ring"
           >
-            Read Writeups
+            Read More
           </Link>
           <Link
             href="/projects"
